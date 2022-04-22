@@ -57,7 +57,7 @@ export default {
       return {
          currency_from: "USD",
          currency_to: "RUB",
-         value_from: 1,
+         value_from: 0,
          value_to: 0,
       };
    },

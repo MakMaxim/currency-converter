@@ -175,12 +175,8 @@ export default {
 }
 
 .item {
-   &__title {
-   }
    &__value {
       margin: 15px 0;
-   }
-   &__progress {
    }
    &__remove {
       margin: 15px 0 5px;

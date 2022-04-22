@@ -83,14 +83,12 @@ h1 {
    display: flex;
    justify-content: center;
 }
-
 .container {
    width: 600px;
    border: 4px solid rgb(0, 15, 100);
    border-radius: 10px;
    background-color: rgb(241, 245, 255);
 }
-
 .select {
    padding: 3px;
    border-radius: 8px;
