@@ -15,21 +15,9 @@
       </div>
       <div
          class="item__progress"
-         :class="
-            (
-               currency.Value / this.data.Valute[this.currency_base].Value -
-               currency.Previous / this.data.Valute[this.currency_base].Previous
-            ).toFixed(4) > 0
-               ? 'green'
-               : 'red'
-         "
+         :class="progress_value(currency) > 0 ? 'green' : 'red'"
       >
-         {{
-            (
-               currency.Value / this.data.Valute[this.currency_base].Value -
-               currency.Previous / this.data.Valute[this.currency_base].Previous
-            ).toFixed(4)
-         }}
+         {{ progress_value(currency) }}
       </div>
       <button class="item__remove" @click="remove_currency(currency)">
          <p>Удалить валюту</p>
@@ -60,6 +48,12 @@ export default {
    methods: {
       remove_currency(currency) {
          this.$emit("remove", currency);
+      },
+      progress_value(currency) {
+         return (
+            currency.Value / this.data.Valute[this.currency_base].Value -
+            currency.Previous / this.data.Valute[this.currency_base].Previous
+         ).toFixed(4);
       },
    },
 };
