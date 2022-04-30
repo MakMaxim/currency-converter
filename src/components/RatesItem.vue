@@ -9,7 +9,9 @@
       <div class="item__value">
          {{
             (
-               currency.Value / this.data.Valute[this.currency_base].Value
+               currency.Value /
+               currency.Nominal /
+               this.data.Valute[this.currency_base].Value
             ).toFixed(4)
          }}
       </div>
@@ -51,8 +53,10 @@ export default {
       },
       progress_value(currency) {
          return (
-            currency.Value / this.data.Valute[this.currency_base].Value -
-            currency.Previous / this.data.Valute[this.currency_base].Previous
+            (currency.Value / this.data.Valute[this.currency_base].Value -
+               currency.Previous /
+                  this.data.Valute[this.currency_base].Previous) /
+            currency.Nominal
          ).toFixed(4);
       },
    },

@@ -65,7 +65,8 @@ export default {
       calculationValueTwo() {
          this.value_to = (
             (this.value_from * this.data.Valute[this.currency_from].Value) /
-            this.data.Valute[this.currency_to].Value
+            this.data.Valute[this.currency_to].Value /
+            this.data.Valute[this.currency_from].Nominal
          ).toFixed(4);
       },
       conversion() {
