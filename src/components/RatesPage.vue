@@ -29,17 +29,19 @@
          </button>
       </div>
       <div class="rates__items">
-         <div v-for="cur in currencies" :key="cur">
-            <rates-item
-               v-for="currency in data.Valute"
-               :key="currency.CharCode"
-               :currency="currency"
-               :cur="cur"
-               :currency_base="currency_base"
-               :data="data"
-               @remove="remove_currency"
-            />
-         </div>
+         <transition-group name="rates__items">
+            <div v-for="cur in currencies" :key="cur">
+               <rates-item
+                  v-for="currency in data.Valute"
+                  :key="currency.CharCode"
+                  :currency="currency"
+                  :cur="cur"
+                  :currency_base="currency_base"
+                  :data="data"
+                  @remove="remove_currency"
+               />
+            </div>
+         </transition-group>
       </div>
    </div>
 </template>
@@ -121,5 +123,19 @@ export default {
       justify-content: center;
       flex-wrap: wrap;
    }
+}
+
+.rates__items-item {
+   display: inline-block;
+   margin-right: 10px;
+}
+.rates__items-enter-active,
+.rates__items-leave-active {
+   transition: all 0.5s ease;
+}
+.rates__items-enter-from,
+.rates__items-leave-to {
+   opacity: 0;
+   transform: translateY(30px);
 }
 </style>
